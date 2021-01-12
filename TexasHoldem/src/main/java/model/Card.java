@@ -1,57 +1,29 @@
-package Model;
-
-import java.util.Objects;
-
-/**
- * Class for the Model.Card
- */
+package model;
 
 public class Card implements Comparable<Card> {
   private Suit suit;
   private Value value;
 
-
-  /**
-   * Model.Card Constructor
-   * @param suit
-   * @param value
-   */
-
   public Card(Suit suit, Value value) {
     this.suit = suit;
     this.value = value;
-
   }
-
-  /**
-   * Get suit of the Model.Card.
-   * @return suit
-   */
-
 
   public Suit getSuit() {
     return this.suit;
   }
 
-  /**
-   * Get the Model.Value of the Model.Card.
-   * @return value
-   */
-
-
   public Value getValue() {
     return this.value;
-
   }
 
-
+  public int getSortValue() {
+    return this.value.getValue();
+  }
 
   public int compareTo(Card c) {
-    return this.getValue().getValue() - c.getValue().getValue();
+    return this.getValue().compareTo(c.getValue());
   }
-
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -67,15 +39,7 @@ public class Card implements Comparable<Card> {
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(suit, value);
-  }
-
-  @Override
   public String toString() {
-    return "<"+ value + " " + "of" + " " + suit +">";
+    return "<"+ value + "/" + suit +">";
   }
 }
-
-
-
